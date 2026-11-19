@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Half-Life: игра, которая изменила индустрию</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@600;800&family=Barlow:wght@400;500&display=swap" rel="stylesheet">
+<style>
+:root{
+  --bg:#d6d9da; --surface:#c5c9cb; --ink:#16191b; --muted:#4a5155; --accent:#d9620a; --on-accent:#16191b; --line:#16191b;
+  --head:"Barlow Condensed","Arial Narrow",Impact,sans-serif; --body:"Barlow",system-ui,-apple-system,"Segoe UI",Arial,sans-serif;
+  box-sizing:border-box; padding-top:env(safe-area-inset-top,0px); padding-bottom:env(safe-area-inset-bottom,0px);
+}
+@media (prefers-color-scheme:dark){
+  :root:not([data-theme="light"]){--bg:#15181a; --surface:#1f2427; --ink:#e4e7e8; --muted:#9aa3a8; --accent:#f08a24; --on-accent:#15181a; --line:#e4e7e8; color-scheme:dark}
+}
+:root[data-theme="dark"]{--bg:#15181a; --surface:#1f2427; --ink:#e4e7e8; --muted:#9aa3a8; --accent:#f08a24; --on-accent:#15181a; --line:#e4e7e8; color-scheme:dark}
+html{scroll-padding-top:env(safe-area-inset-top,0px)}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--ink);font:400 18px/1.6 var(--body)}
+a{color:inherit}
+:focus-visible{outline:3px solid var(--accent);outline-offset:3px}
+.wrap{max-width:1040px;margin:0 auto;padding:0 22px}
+h1,h2,h3{font-family:var(--head);margin:0;line-height:.95;letter-spacing:-.01em}
+
+/* hero */
+.hero{position:relative;overflow:hidden;border-bottom:6px solid var(--accent);padding:56px 0 48px}
+.lambda{position:absolute;right:-4%;top:-12%;font:800 clamp(380px,62vw,760px)/1 var(--head);color:var(--accent);opacity:.9;user-select:none;pointer-events:none}
+.hero .wrap{position:relative}
+.hero h1{font-weight:800;font-size:clamp(64px,15vw,168px);text-transform:uppercase}
+.hero h1 span{display:block;margin-left:.6em}
+.hero p.lead{max-width:30ch;font-size:clamp(20px,3vw,26px);line-height:1.35;margin:28px 0 0;font-weight:500;background:var(--bg);display:inline-block;padding:6px 10px 6px 0}
+.date{margin-top:28px;font:600 22px var(--head);background:var(--ink);color:var(--bg);display:inline-block;padding:6px 14px}
+
+/* sections */
+section{padding:64px 0}
+h2{font-weight:800;font-size:clamp(40px,7vw,72px);text-transform:uppercase;margin-bottom:28px}
+.intro{max-width:62ch}
+.rows{border-top:3px solid var(--line);margin-top:8px}
+.row{display:grid;grid-template-columns:minmax(0,1fr);gap:6px;padding:22px 0;border-bottom:1px solid var(--line)}
+.row h3{font-weight:800;font-size:32px;text-transform:uppercase}
+.row p{margin:0;max-width:62ch;color:var(--muted)}
+@media(min-width:760px){.row{grid-template-columns:300px 1fr;gap:32px}}
+
+/* timeline */
+.tl{background:var(--surface)}
+.tl ol{list-style:none;margin:0;padding:0;border-left:6px solid var(--accent)}
+.tl li{padding:0 0 26px 22px;position:relative}
+.tl li:last-child{padding-bottom:0}
+.tl b{display:block;font:800 34px/1 var(--head);color:var(--ink)}
+.tl span{color:var(--muted);display:block;max-width:60ch}
+
+/* gabe */
+.gabe{display:grid;gap:36px}
+@media(min-width:820px){.gabe{grid-template-columns:1fr 1fr}}
+.facts{margin:0;padding:0;list-style:none;border-top:3px solid var(--line)}
+.facts li{padding:14px 0;border-bottom:1px solid var(--line)}
+.facts strong{font:800 26px var(--head);display:block;text-transform:uppercase}
+.gabe p{max-width:58ch}
+
+/* explode */
+.btnbox{margin-top:36px}
+button{font:800 24px var(--head);text-transform:uppercase;background:var(--accent);color:var(--on-accent);border:0;padding:14px 22px;cursor:pointer;min-height:48px}
+button:active{transform:translateY(2px)}
+#out{margin:14px 0 0;min-height:3.2em;color:var(--muted);max-width:60ch}
+
+footer{background:var(--ink);color:var(--bg);padding:34px 0 40px}
+footer .author{font:800 clamp(34px,6vw,56px)/1 var(--head);text-transform:uppercase}
+footer small{display:block;margin-top:10px;opacity:.75;font-size:14px}
+@media(prefers-reduced-motion:no-preference){.lambda{animation:drop .9s cubic-bezier(.2,.8,.2,1) both}@keyframes drop{from{transform:translateY(-8%);opacity:0}}}
+</style>
+</head>
+<body>
+<header class="hero">
+  <div class="lambda" aria-hidden="true">λ</div>
+  <div class="wrap">
+    <h1>Half<span>Life</span></h1>
+    <p class="lead">Шутер, после которого игры стали рассказывать истории.</p><br>
+    <div class="date">Вышла 19 ноября 1998</div>
+  </div>
+</header>
+
+<main>
+<section>
+  <div class="wrap">
+    <h2>Почему она революционная</h2>
+    <p class="intro">Half-Life выпустила студия Valve, и это был её первый проект. До неё шутеры были набором уровней с монстрами. Здесь игрока посадили в тело учёного Гордона Фримена и не выпускали из его глаз ни на секунду.</p>
+    <div class="rows">
+      <div class="row"><h3>Нет роликов</h3><p>Игра начинается с поездки на вагонетке по комплексу Black Mesa, и камера не отрывается от первого лица. Сюжет идёт прямо во время игры, а не в заставках.</p></div>
+      <div class="row"><h3>Сценарные события</h3><p>Стены рушатся, учёные зовут на помощь, солдаты врываются через вентиляцию. Игрок видит происходящее своими глазами, поэтому мир кажется живым.</p></div>
+      <div class="row"><h3>Умные враги</h3><p>Солдаты спецназа действуют группой: прячутся, обходят с флангов, выкуривают гранатами. Для 1998 года это было редкостью.</p></div>
+      <div class="row"><h3>Моды и сообщество</h3><p>Игра работала на движке GoldSrc, переработанном из Quake, и легко поддавалась модификациям. Из них вырос Counter-Strike, самый известный мод в истории.</p></div>
+      <div class="row"><h3>Признание</h3><p>Игра получила более 50 наград «Игра года» и, по данным Valve, разошлась тиражом более 9 миллионов копий к 2008 году.</p></div>
+    </div>
+  </div>
+</section>
+
+<section class="tl">
+  <div class="wrap">
+    <h2>Путь серии</h2>
+    <ol>
+      <li><b>1996</b><span>Гейб Ньюэлл и Майк Харрингтон основывают Valve.</span></li>
+      <li><b>1998</b><span>Выходит Half-Life.</span></li>
+      <li><b>1999</b><span>Появляется первая версия Counter-Strike как мод для Half-Life.</span></li>
+      <li><b>2003</b><span>Valve запускает Steam, платформу для покупки и обновления игр.</span></li>
+      <li><b>2004</b><span>Выходит Half-Life 2 и показывает новый уровень физики и анимации лиц.</span></li>
+      <li><b>2020</b><span>Half-Life: Alyx возвращает серию в формате виртуальной реальности.</span></li>
+    </ol>
+  </div>
+</section>
+
+<section>
+  <div class="wrap gabe">
+    <div>
+      <h2>Гейб Ньюэлл</h2>
+      <p>Гейб Ньюэлл родился 3 ноября 1962 года в Техасе. Около 13 лет он проработал в Microsoft и участвовал в создании ранних версий Windows. В 1996 году ушёл оттуда и вместе с коллегой Майком Харрингтоном основал Valve.</p>
+      <p>Ньюэлл стал лицом студии: именно под его руководством Valve от одной игры дошла до собственной платформы Steam, которой пользуются миллионы игроков.</p>
+    </div>
+    <ul class="facts">
+      <li><strong>Основатель Valve</strong>Вместе с Майком Харрингтоном, 1996 год</li>
+      <li><strong>Бывший сотрудник Microsoft</strong>Работал над Windows</li>
+      <li><strong>Создатель Steam</strong>Запуск в 2003 году</li>
+      <li><strong>Продюсер легенд</strong>Half-Life, Counter-Strike, Portal, Team Fortress</li>
+    </ul>
+  </div>
+</section>
+
+<section class="tl">
+  <div class="wrap">
+    <h2>Каскад резонанса</h2>
+    <p class="intro">В сюжете эксперимент в Black Mesa пошёл не так, и в мир прорвались существа из другого измерения. Нажми, чтобы запустить свой эксперимент.</p>
+    <div class="btnbox">
+      <button id="go" type="button">Запустить эксперимент</button>
+      <p id="out" role="status" aria-live="polite"></p>
+    </div>
+  </div>
+</section>
+</main>
+
+<footer>
+  <div class="wrap">
+    <div class="author">Автор: Заманбек</div>
+    <small>Фанатский сайт. Half-Life и Valve — товарные знаки Valve Corporation.</small>
+  </div>
+</footer>
+
+<script>
+(function(){
+  var lines=[
+    "Образец помещён в луч. Всё идёт по плану.",
+    "Показатели растут. Учёные переглядываются.",
+    "Каскад резонанса. Вызывайте Гордона Фримена.",
+    "Эксперимент завершён. Монтировка при вас?"
+  ];
+  var i=0, b=document.getElementById("go"), o=document.getElementById("out");
+  b.addEventListener("click",function(){
+    o.textContent=lines[i];
+    i=(i+1)%lines.length;
+    b.textContent=i===0?"Повторить эксперимент":"Усилить луч";
+  });
+})();
+</script>
+</body>
+</html>
